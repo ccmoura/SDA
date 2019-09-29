@@ -22,7 +22,7 @@ PORT (
 	S : out std_logic_vector(0 to 3)
 );
 END fulladder4bits;
-architecture comportamento of fulladder4bits is 
+architecture comportamento of fulladder4bits is
 signal fio : std_logic_vector(0 to 2);
 component fulladder
 PORT(
@@ -44,7 +44,7 @@ LIBRARY ieee ;
 USE ieee.std_logic_1164.all ;
 ENTITY mux2pra14b is
 PORT (
-	sel : in bit;
+	sel : in std_logic;
 	K, Q : in std_logic_vector(0 to 3);
 	J : out std_logic_vector(0 to 3)
 );
@@ -71,7 +71,7 @@ END comportamento;
 --somador 32 bits v
 LIBRARY ieee ;
 USE ieee.std_logic_1164.all ;
-ENTITY CarrySelector is 
+ENTITY CarrySelector is
 PORT (
 	A : in std_logic_vector (0 to 31);
 	B : in std_logic_vector (0 to 31);
@@ -80,7 +80,7 @@ PORT (
 	CoutS : out std_logic
 );
 END CarrySelector;
-architecture comportamento of CarrySelector is  
+architecture comportamento of CarrySelector is
 	signal TempC: std_logic_vector (0 to 21);
 	signal TempS: std_logic_vector (0 to 55);
 component fulladder4bits
@@ -104,7 +104,7 @@ PORT(
 	J : out std_logic_vector(0 to 3)
 );
 end component;
-BEGIN 
+BEGIN
 	s1: fulladder4bits
 		port map(A => A(0 to 3), B => B(0 to 3), Cin => CinS, Cout => TempC(0), S => S(0 to 3));
 	s2: fulladder4bits
@@ -115,8 +115,8 @@ BEGIN
 		port map(K => TempS(0 to 3), Q => TempS(4 to 7), sel => TempC(0), J => S(4 to 7));
 	mux1 : mux2pra1
 		port map(X => TempC(1), Y => TempC(2), sel => TempC(0), Z => TempC(3));
-	
-	
+
+
 	s4: fulladder4bits
 		port map(A => A(8 to 11), B => B(8 to 11), Cin => '0', Cout => TempC(4), S => TempS(8 to 11));
 	s5: fulladder4bits
@@ -125,8 +125,8 @@ BEGIN
 		port map(K => TempS(8 to 11), Q => TempS(12 to 15), sel => TempC(3), J => S(8 to 11));
 	mux2 : mux2pra1
 		port map(X => TempC(4), Y => TempC(5), sel => TempC(3), Z => TempC(6));
-		
-	
+
+
 	s6: fulladder4bits
 		port map(A => A(12 to 15), B => B(12 to 15), Cin => '0', Cout => TempC(7), S => TempS(16 to 19));
 	s7: fulladder4bits
@@ -135,8 +135,8 @@ BEGIN
 		port map(K => TempS(16 to 19), Q => TempS(20 to 23), sel => TempC(6), J => S(12 to 15));
 	mux3 : mux2pra1
 		port map(X => TempC(7), Y => TempC(8), sel => TempC(6), Z => TempC(9));
-		
-		
+
+
 	s8: fulladder4bits
 		port map(A => A(16 to 19), B => B(16 to 19), Cin => '0', Cout => TempC(10), S => TempS(24 to 27));
 	s9: fulladder4bits
@@ -145,8 +145,8 @@ BEGIN
 		port map(K => TempS(24 to 27), Q => TempS(28 to 31), sel => TempC(9), J => S(16 to 19));
 	mux4 : mux2pra1
 		port map(X => TempC(10), Y => TempC(11), sel => TempC(9), Z => TempC(12));
-		
-		
+
+
 	s10: fulladder4bits
 		port map(A => A(20 to 23), B => B(20 to 23), Cin => '0', Cout => TempC(13), S => TempS(32 to 35));
 	s11: fulladder4bits
@@ -155,8 +155,8 @@ BEGIN
 		port map(K => TempS(32 to 35), Q => TempS(36 to 39), sel => TempC(12), J => S(20 to 23));
 	mux5 : mux2pra1
 		port map(X => TempC(13), Y => TempC(14), sel => TempC(12), Z => TempC(15));
-		
-	
+
+
 	s12: fulladder4bits
 		port map(A => A(24 to 27), B => B(24 to 27), Cin => '0', Cout => TempC(16), S => TempS(40 to 43));
 	s13: fulladder4bits
@@ -165,7 +165,7 @@ BEGIN
 		port map(K => TempS(40 to 43), Q => TempS(44 to 47), sel => TempC(15), J => S(24 to 27));
 	mux6 : mux2pra1
 		port map(X => TempC(16), Y => TempC(17), sel => TempC(15), Z => TempC(18));
-		
+
 	s14: fulladder4bits
 		port map(A => A(28 to 31), B => B(28 to 31), Cin => '0', Cout => TempC(19), S => TempS(48 to 51));
 	s15: fulladder4bits
