@@ -1,7 +1,10 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+
 ENTITY fulladder is
 PORT(
-	A, B, Cin : in bit;
-	Cout, S : out bit
+	A, B, Cin : in std_logic;
+	Cout, S : out std_logic
 );
 END fulladder;
 architecture comportamento of fulladder is
@@ -9,20 +12,22 @@ BEGIN
 	S <= A xor B xor Cin;
 	Cout <= ((A xor B) and Cin) or (B and A);
 end comportamento;
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
 ENTITY fulladder4bits is
 PORT (
-	A, B : in bit_vector(0 to 3);
-	Cin : in bit;
-	Cout : out bit;
-	S : out bit_vector(0 to 3)
+	A, B : in std_logic_vector(0 to 3);
+	Cin : in std_logic;
+	Cout : out std_logic;
+	S : out std_logic_vector(0 to 3)
 );
 END fulladder4bits;
 architecture comportamento of fulladder4bits is 
-signal fio : bit_vector(0 to 2);
+signal fio : std_logic_vector(0 to 2);
 component fulladder
 PORT(
-	A, B, Cin : in bit;
-	Cout, S : out bit
+	A, B, Cin : in std_logic;
+	Cout, S : out std_logic
 );
 end component;
 BEGIN
@@ -35,11 +40,13 @@ BEGIN
 	fa4: fulladder
 		port map(A => A(3), B => B(3), Cin => fio(2), Cout => Cout, S => S(3));
 END comportamento;
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
 ENTITY mux2pra14b is
 PORT (
 	sel : in bit;
-	K, Q : in bit_vector(0 to 3);
-	J : out bit_vector(0 to 3)
+	K, Q : in std_logic_vector(0 to 3);
+	J : out std_logic_vector(0 to 3)
 );
 END mux2pra14b;
 architecture comportamento of mux2pra14b is
@@ -48,10 +55,12 @@ BEGIN
 		J <= K when '0',
 			Q when others;
 END comportamento;
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
 ENTITY mux2pra1 is
 PORT (
-	X, Y, sel : in bit;
-	Z : out bit
+	X, Y, sel : in std_logic;
+	Z : out std_logic
 );
 END mux2pra1;
 architecture comportamento of mux2pra1 is
@@ -60,37 +69,39 @@ BEGIN
 END comportamento;
 --full adder, mux4pra1 e mux2pra1
 --somador 32 bits v
-ENTITY Somador32Bits is 
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+ENTITY CarrySelector is 
 PORT (
-	A : in bit_vector (0 to 31);
-	B : in bit_vector (0 to 31);
-	CinS : in bit;
-	S : out bit_vector (0 to 31);
-	CoutS : out bit
+	A : in std_logic_vector (0 to 31);
+	B : in std_logic_vector (0 to 31);
+	CinS : in std_logic;
+	S : out std_logic_vector (0 to 31);
+	CoutS : out std_logic
 );
-END Somador32Bits;
-architecture comportamento of Somador32Bits is  
-	signal TempC: bit_vector (0 to 21);
-	signal TempS: bit_vector (0 to 55);
+END CarrySelector;
+architecture comportamento of CarrySelector is  
+	signal TempC: std_logic_vector (0 to 21);
+	signal TempS: std_logic_vector (0 to 55);
 component fulladder4bits
 PORT (
-	A, B : in bit_vector(0 to 3);
-	Cin : in bit;
-	Cout : out bit;
-	S : out bit_vector(0 to 3)
+	A, B : in std_logic_vector(0 to 3);
+	Cin : in std_logic;
+	Cout : out std_logic;
+	S : out std_logic_vector(0 to 3)
 );
 end component;
 component mux2pra1
 PORT(
-	X, Y, sel : in bit;
-	Z : out bit
+	X, Y, sel : in std_logic;
+	Z : out std_logic
 );
 end component;
 component mux2pra14b
 PORT(
-	sel : in bit;
-	K, Q : in bit_vector(0 to 3);
-	J : out bit_vector(0 to 3)
+	sel : in std_logic;
+	K, Q : in std_logic_vector(0 to 3);
+	J : out std_logic_vector(0 to 3)
 );
 end component;
 BEGIN 

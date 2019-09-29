@@ -1,7 +1,9 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
 ENTITY MeioSomador is
 PORT (
-	A, B : in bit;
-	S, C : out bit
+	A, B : in std_logic;
+	S, C : out std_logic
 );
 END MeioSomador;
 architecture comportamento of MeioSomador is 
@@ -9,10 +11,12 @@ BEGIN
 	S <= A xor B;
 	C <= A and B;
 END comportamento;
+LIBRARY ieee ; 
+USE ieee.std_logic_1164.all ;
 ENTITY SomadorCompleto is
 PORT (
-	X, Y, Cin : in bit;
-	Z, Cout : out bit
+	X, Y, Cin : in std_logic;
+	Z, Cout : out std_logic
 );
 END SomadorCompleto;
 architecture comportamento of SomadorCompleto is 
@@ -23,26 +27,28 @@ END comportamento;
 
 --somadores completo e meio ^
 --somador 32 bits v
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
 ENTITY Somador32Bits is 
 PORT (
-	A : in bit_vector (0 to 31);
-	B : in bit_vector (0 to 31);
-	S : out bit_vector (0 to 31);
-	C : out bit
+	A : in std_logic_vector (0 to 31);
+	B : in std_logic_vector (0 to 31);
+	S : out std_logic_vector (0 to 31);
+	C : out std_logic
 );
 END Somador32Bits;
 architecture comportamento of Somador32Bits is  
-	signal TempC: bit_vector (0 to 30);
+	signal TempC: std_logic_vector (0 to 30);
 component MeioSomador 
 PORT (
-	A, B : in bit;
-	S, C : out bit
+	A, B : in std_logic;
+	S, C : out std_logic
 );
 end component;
 component SomadorCompleto
 PORT (
-	X, Y, Cin: in bit;
-	Z, Cout : out bit
+	X, Y, Cin: in std_logic;
+	Z, Cout : out std_logic
 );
 end component;
 BEGIN 
