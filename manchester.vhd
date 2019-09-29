@@ -1,4 +1,4 @@
-library IEEE; 
+library IEEE;
 USE ieee.std_logic_1164.all;
 USE ieee.std_logic_signed.all;
 
@@ -9,7 +9,7 @@ PORT (
 );
 END manchester;
 
-architecture comportamento of manchester is 
-BEGIN 
+architecture comportamento of manchester is
+BEGIN
 	S <= A + B;
 END comportamento;
