@@ -1,0 +1,16 @@
+library IEEE;
+USE ieee.std_logic_1164.all;
+
+ENTITY BinaryRotation IS
+port(
+	bitArray: in std_logic_vector(0 to 27);
+	outArray: out std_logic_vector(0 to 27)
+);
+end BinaryRotation;
+architecture comportamento of BinaryRotation is  
+signal b : std_logic;
+begin
+	b <= bitArray(0);
+	outArray <= shift_left(unsigned(bitArray), 1);
+	otArray(27) <= b;
+end comportamento;

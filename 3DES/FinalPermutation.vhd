@@ -1,0 +1,80 @@
+library IEEE;
+USE ieee.std_logic_1164.all;
+
+ENTITY FinalPermutation IS
+PORT(
+	bitArray1, bitArray2: in std_logic_vector(0 to 31);
+	outArray: out std_logic_vector(0 to 31)
+);
+END FinalPermutation;
+
+architecture comportamento of FinalPermutation is  
+signal auxArray : std_logic_vector(0 to 63);
+begin
+	auxArray(0 to 31) <= bitArray1;
+	auxArray(32	to 63) <= bitArray2;
+	outArray(0) <= auxArray(39);
+	outArray(1) <= auxArray(7);
+	outArray(2) <= auxArray(47);
+	outArray(3) <= auxArray(15);
+	outArray(4) <= auxArray(55);
+	outArray(5) <= auxArray(23);
+	outArray(6) <= auxArray(63);
+	outArray(7) <= auxArray(31);
+	outArray(8) <= auxArray(38);
+	outArray(9) <= auxArray(6);
+	outArray(10) <= auxArray(46);
+	outArray(11) <= auxArray(14);
+	outArray(12) <= auxArray(54);
+	outArray(13) <= auxArray(22);
+	outArray(14) <= auxArray(62);
+	outArray(15) <= auxArray(30);
+	outArray(16) <= auxArray(37);
+	outArray(17) <= auxArray(5);
+	outArray(18) <= auxArray(45);
+	outArray(19) <= auxArray(13);
+	outArray(20) <= auxArray(53);
+	outArray(21) <= auxArray(21);
+	outArray(22) <= auxArray(61);
+	outArray(23) <= auxArray(29);
+	outArray(24) <= auxArray(36);
+	outArray(25) <= auxArray(4);
+	outArray(26) <= auxArray(44);
+	outArray(27) <= auxArray(12);
+	outArray(28) <= auxArray(52);
+	outArray(29) <= auxArray(20);
+	outArray(30) <= auxArray(60);
+	outArray(31) <= auxArray(28);
+	outArray(32) <= auxArray(35);
+	outArray(33) <= auxArray(3);
+	outArray(34) <= auxArray(43);
+	outArray(35) <= auxArray(11);
+	outArray(36) <= auxArray(51);
+	outArray(37) <= auxArray(19);
+	outArray(38) <= auxArray(59);
+	outArray(39) <= auxArray(27);
+	outArray(40) <= auxArray(34);
+	outArray(41) <= auxArray(2);
+	outArray(42) <= auxArray(42);
+	outArray(43) <= auxArray(10);
+	outArray(44) <= auxArray(50);
+	outArray(45) <= auxArray(18);
+	outArray(46) <= auxArray(58);
+	outArray(47) <= auxArray(26);
+	outArray(48) <= auxArray(33);
+	outArray(49) <= auxArray(1);
+	outArray(50) <= auxArray(41);
+	outArray(51) <= auxArray(9);
+	outArray(52) <= auxArray(49);
+	outArray(53) <= auxArray(17);
+	outArray(54) <= auxArray(57);
+	outArray(55) <= auxArray(25);
+	outArray(56) <= auxArray(32);
+	outArray(57) <= auxArray(0);
+	outArray(58) <= auxArray(40);
+	outArray(59) <= auxArray(8);
+	outArray(60) <= auxArray(48);
+	outArray(61) <= auxArray(16);
+	outArray(62) <= auxArray(56);
+	outArray(63) <= auxArray(24);
+end comportamento;
