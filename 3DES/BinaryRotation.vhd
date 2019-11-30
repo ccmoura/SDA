@@ -4,14 +4,16 @@ use ieee.numeric_std.all;
 
 ENTITY BinaryRotation IS
 port(
-	bitArray: in unsigned(0 to 27);
-	outArray: out unsigned(0 to 27)
+	x: in unsigned(0 to 27);
+	y, z: out unsigned(0 to 27)
 );
 end BinaryRotation;
 architecture comportamento of BinaryRotation is  
 signal b : std_logic;
 begin
-	b <= bitArray(0);
-	outArray <= shift_left(unsigned(bitArray), 1);
-	outArray(27) <= b;
+	b <= x(0);
+	y <= shift_left(unsigned(x), 1);
+	y(27) <= b;
+	z <= shift_left(unsigned(x), 1);
+	z(27) <= b;
 end comportamento;

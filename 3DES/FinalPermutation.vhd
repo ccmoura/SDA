@@ -1,15 +1,15 @@
 library IEEE;
 USE ieee.std_logic_1164.all;
-
+use ieee.numeric_std.all;
 ENTITY FinalPermutation IS
 PORT(
-	bitArray1, bitArray2: in std_logic_vector(0 to 31);
-	outArray: out std_logic_vector(0 to 31)
+	bitArray1, bitArray2: in unsigned(0 to 31);
+	outArray: out unsigned(0 to 31)
 );
 END FinalPermutation;
 
 architecture comportamento of FinalPermutation is  
-signal auxArray : std_logic_vector(0 to 63);
+signal auxArray : unsigned(0 to 63);
 begin
 	auxArray(0 to 31) <= bitArray1;
 	auxArray(32	to 63) <= bitArray2;

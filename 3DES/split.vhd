@@ -1,10 +1,11 @@
 library IEEE;
+use ieee.numeric_std.all;
 USE ieee.std_logic_1164.all;
 
 ENTITY split IS
 port(
-	bitArray: in std_logic_vector(0 to 63);
-	out1, out2: out std_logic_vector(0 to 31)
+	bitArray: in unsigned(0 to 63);
+	out1, out2: out unsigned(0 to 31)
 );
 end split;
 architecture comportamento of split is  

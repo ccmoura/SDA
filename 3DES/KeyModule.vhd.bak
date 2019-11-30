@@ -1,0 +1,16 @@
+library IEEE;
+USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+ENTITY KeyModule IS
+PORT(
+	kIn: in unsigned(0 to 55);
+	kOut1, kOut2, kOut3, kOut4, kOut5, kOut6, kOut7, kOut8, kOut9, kOut10, kOut11, kOut12, kOut13, kOut14, kOut15, kOut16: out unsigned(0 to 47)
+);
+END KeyModule;
+
+architecture comportamento of KeyModule is  
+
+begin
+
+end comportamento;
