@@ -1,0 +1,19 @@
+library IEEE;
+USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+ENTITY Box IS
+port(
+	x: in unsigned(0 to 27);
+	y, z: out unsigned(0 to 27)
+);
+end Box;
+architecture comportamento of Box is  
+signal b : std_logic;
+begin
+	b <= x(0);
+	y <= shift_left(unsigned(x), 1);
+	y(27) <= b;
+	z <= shift_left(unsigned(x), 1);
+	z(27) <= b;
+end comportamento;
