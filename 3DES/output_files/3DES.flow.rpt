@@ -1,5 +1,5 @@
 Flow report for 3DES
-Sun Dec 01 13:36:10 2019
+Mon Dec 02 02:25:53 2019
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Sun Dec 01 13:36:06 2019    ;
+; Flow Status                        ; Successful - Mon Dec 02 02:25:50 2019    ;
 ; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
 ; Revision Name                      ; 3DES                                     ;
 ; Top-level Entity Name              ; TripleDES                                ;
@@ -66,7 +66,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/01/2019 13:35:50 ;
+; Start date & time ; 12/02/2019 02:25:36 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; 3DES                ;
 +-------------------+---------------------+
@@ -77,7 +77,7 @@ applicable agreement for further details.
 +-------------------------------------+--------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+--------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 18121609279995.157521815008260 ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 18121609279995.157526433614532 ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; 16764057                       ; --            ; TripleDES   ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING          ; --            ; TripleDES   ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                         ; --            ; TripleDES   ; Top        ;
@@ -91,11 +91,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:04     ; 1.0                     ; 413 MB              ; 00:00:01                           ;
-; Fitter                    ; 00:00:08     ; 1.0                     ; 498 MB              ; 00:00:05                           ;
+; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 413 MB              ; 00:00:01                           ;
+; Fitter                    ; 00:00:06     ; 1.0                     ; 498 MB              ; 00:00:04                           ;
 ; Assembler                 ; 00:00:02     ; 1.0                     ; 386 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 368 MB              ; 00:00:02                           ;
-; Total                     ; 00:00:17     ; --                      ; --                  ; 00:00:09                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 368 MB              ; 00:00:02                           ;
+; Total                     ; 00:00:12     ; --                      ; --                  ; 00:00:08                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

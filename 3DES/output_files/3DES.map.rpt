@@ -1,5 +1,5 @@
 Analysis & Synthesis report for 3DES
-Sun Dec 01 13:35:53 2019
+Mon Dec 02 02:25:39 2019
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 
 
@@ -41,7 +41,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Dec 01 13:35:53 2019    ;
+; Analysis & Synthesis Status        ; Successful - Mon Dec 02 02:25:39 2019    ;
 ; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
 ; Revision Name                      ; 3DES                                     ;
 ; Top-level Entity Name              ; TripleDES                                ;
@@ -221,7 +221,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
-    Info: Processing started: Sun Dec 01 13:35:49 2019
+    Info: Processing started: Mon Dec 02 02:25:36 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off 3DES -c 3DES
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file tripledes.vhd
@@ -270,8 +270,8 @@ Info (21057): Implemented 2 device resources after synthesis - the final resourc
     Info (21059): Implemented 1 output pins
 Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 6 warnings
     Info: Peak virtual memory: 413 megabytes
-    Info: Processing ended: Sun Dec 01 13:35:53 2019
-    Info: Elapsed time: 00:00:04
+    Info: Processing ended: Mon Dec 02 02:25:39 2019
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 
 
