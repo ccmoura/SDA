@@ -12,6 +12,7 @@ end Box;
 architecture comportamento of Box is  
 signal expansionBuffer : unsigned(0 to 47);
 signal expansionBufferProcessed : unsigned(0 to 31);
+signal ebppermuted : unsigned(0 to 31);
 begin
 	-- expansao
 	expansionBuffer(0) <= message2(31);
@@ -641,4 +642,42 @@ begin
 			when others => expansionBufferProcessed(28 to 31) <= "0000";
 		end case;
 	end process;
+	
+	-- permuta
+	ebppermuted(0) <= expansionBuffer(15);
+	ebppermuted(1) <= expansionBuffer(6);
+	ebppermuted(2) <= expansionBuffer(19);
+	ebppermuted(3) <= expansionBuffer(20);
+	ebppermuted(4) <= expansionBuffer(28);
+	ebppermuted(5) <= expansionBuffer(11);
+	ebppermuted(6) <= expansionBuffer(27);
+	ebppermuted(7) <= expansionBuffer(16);
+	ebppermuted(8) <= expansionBuffer(0);
+	ebppermuted(9) <= expansionBuffer(14);
+	ebppermuted(10) <= expansionBuffer(22);
+	ebppermuted(11) <= expansionBuffer(25);
+	ebppermuted(12) <= expansionBuffer(4);
+	ebppermuted(13) <= expansionBuffer(17);
+	ebppermuted(14) <= expansionBuffer(30);
+	ebppermuted(15) <= expansionBuffer(9);
+	ebppermuted(16) <= expansionBuffer(1);
+	ebppermuted(17) <= expansionBuffer(7);
+	ebppermuted(18) <= expansionBuffer(23);
+	ebppermuted(19) <= expansionBuffer(13);
+	ebppermuted(20) <= expansionBuffer(31);
+	ebppermuted(21) <= expansionBuffer(26);
+	ebppermuted(22) <= expansionBuffer(2);
+	ebppermuted(23) <= expansionBuffer(8);
+	ebppermuted(24) <= expansionBuffer(18);
+	ebppermuted(25) <= expansionBuffer(12);
+	ebppermuted(26) <= expansionBuffer(29);
+	ebppermuted(27) <= expansionBuffer(5);
+	ebppermuted(28) <= expansionBuffer(21);
+	ebppermuted(29) <= expansionBuffer(10);
+	ebppermuted(30) <= expansionBuffer(3);
+	ebppermuted(31) <= expansionBuffer(24);
+	
+	-- xor com outra parte da mensagem e saídas
+	bout1 <= message1 xor ebppermuted;
+	bout2 <= message2;
 end comportamento;
