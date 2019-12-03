@@ -13,11 +13,17 @@ architecture comportamento of Crypto is
 signal outIp1, outIp2, outIp3 : unsigned(0 to 63);
 signal split1Out1, split1Out2, split2Out1, split2Out2, split3Out1, split3Out2 : unsigned(0 to 31);
 signal splitkey1Out1, splitkey1Out2, splitkey2Out1, splitkey2Out2, splitkey3Out1, splitkey3Out2 : unsigned(0 to 31);
-signal keypermutation1out : unsigned(0 to 55);
-signal keygenerator1Out, keygenerator2Out, keygenerator3Out, keygenerator4Out, keygenerator5Out, keygenerator6Out, keygenerator7Out, keygenerator8Out, keygenerator9Out, keygenerator10Out, keygenerator11Out, keygenerator12Out, keygenerator13Out, keygenerator14Out, keygenerator15Out, keygenerator16Out : unsigned(0 to 47);
-signal br1kg1, br2kg1, br1kg2, br2kg2, br1kg3, br2kg3, br1kg4, br2kg4, br1kg5, br2kg5, br1kg6, br2kg6, br1kg7, br2kg7, br1kg8, br2kg8, br1kg9, br2kg9, br1kg10, br2kg10, br1kg11, br2kg11, br1kg12, br2kg12, br1kg13, br2kg13, br1kg14, br2kg14, br1kg15, br2kg15, br1kg16, br2kg16 : unsigned(0 to 27);
+signal keypermutation1out, keypermutation2out, keypermutation3out : unsigned(0 to 55);
+signal keygenerator1Out, keygenerator2Out, keygenerator3Out, keygenerator4Out, keygenerator5Out, keygenerator6Out, keygenerator7Out, keygenerator8Out, keygenerator9Out, keygenerator10Out, keygenerator11Out, keygenerator12Out, keygenerator13Out, keygenerator14Out, keygenerator15Out, keygenerator16Out,
+keygenerator17Out, keygenerator18Out, keygenerator19Out, keygenerator20Out, keygenerator21Out, keygenerator22Out, keygenerator23Out, keygenerator24Out, keygenerator25Out, keygenerator26Out, keygenerator27Out, keygenerator28Out, keygenerator29Out, keygenerator30Out, keygenerator31Out, keygenerator32Out,
+keygenerator33Out, keygenerator34Out, keygenerator35Out, keygenerator36Out, keygenerator37Out, keygenerator38Out, keygenerator39Out, keygenerator40Out, keygenerator41Out, keygenerator42Out, keygenerator43Out, keygenerator44Out, keygenerator45Out, keygenerator46Out, keygenerator47Out, keygenerator48Out : unsigned(0 to 47);
+signal br1kg1, br2kg1, br1kg2, br2kg2, br1kg3, br2kg3, br1kg4, br2kg4, br1kg5, br2kg5, br1kg6, br2kg6, br1kg7, br2kg7, br1kg8, br2kg8, br1kg9, br2kg9, br1kg10, br2kg10, br1kg11, br2kg11, br1kg12, br2kg12, br1kg13, br2kg13, br1kg14, br2kg14, br1kg15, br2kg15, br1kg16, br2kg16,
+br1kg17, br2kg17, br1kg18, br2kg18, br1kg19, br2kg19, br1kg20, br2kg20, br1kg21, br2kg21, br1kg22, br2kg22, br1kg23, br2kg23, br1kg24, br2kg24, br1kg25, br2kg25, br1kg26, br2kg26, br1kg27, br2kg27, br1kg28, br2kg28, br1kg29, br2kg29, br1kg30, br2kg30, br1kg31, br2kg31, br1kg32, br2kg32,
+br1kg33, br2kg33, br1kg34, br2kg34, br1kg35, br2kg35, br1kg36, br2kg36, br1kg37, br2kg37, br1kg38, br2kg38, br1kg39, br2kg39, br1kg40, br2kg40, br1kg41, br2kg41, br1kg42, br2kg42, br1kg43, br2kg43, br1kg44, br2kg44, br1kg45, br2kg45, br1kg46, br2kg46, br1kg47, br2kg47, br1kg48, br2kg48 : unsigned(0 to 27);
 signal outfp1, outfp2, outfp3 : unsigned(0 to 64);
-signal box1out1, box1out2, box2out1, box2out2, box3out1, box3out2, box4out1, box4out2, box5out1, box5out2, box6out1, box6out2, box7out1, box7out2, box8out1, box8out2, box9out1, box9out2, box10out1, box10out2, box11out1, box11out2, box12out1, box12out2, box13out1, box13out2, box14out1, box14out2, box15out1, box15out2, box16out1, box16out2: unsigned(0 to 27);
+signal box1out1, box1out2, box2out1, box2out2, box3out1, box3out2, box4out1, box4out2, box5out1, box5out2, box6out1, box6out2, box7out1, box7out2, box8out1, box8out2, box9out1, box9out2, box10out1, box10out2, box11out1, box11out2, box12out1, box12out2, box13out1, box13out2, box14out1, box14out2, box15out1, box15out2, box16out1, box16out2,
+box17out1, box17out2, box18out1, box18out2, box19out1, box19out2, box20out1, box20out2, box21out1, box21out2, box22out1, box22out2, box23out1, box23out2, box24out1, box24out2, box25out1, box25out2, box26out1, box26out2, box27out1, box27out2, box28out1, box28out2, box29out1, box29out2, box30out1, box30out2, box31out1, box31out2, box32out1, box32out2,
+box33out1, box33out2, box34out1, box34out2, box35out1, box35out2, box36out1, box36out2, box37out1, box37out2, box38out1, box38out2, box39out1, box39out2, box40out1, box40out2, box41out1, box41out2, box42out1, box42out2, box43out1, box43out2, box44out1, box44out2, box45out1, box45out2, box46out1, box46out2, box47out1, box47out2, box48out1, box48out2: unsigned(0 to 27);
 component InitialPermutation
 PORT(
 	bitArray: in unsigned(0 to 63);
@@ -255,4 +261,97 @@ begin
 	-- final permutation 1
 	fp2: FinalPermutation
 		port map(bitArray1 => box32out1, bitArray2 => box32out2, outArray => outfp2);
+		
+	-- TERCEIRO COMPONENTE
+	ip3: InitialPermutation
+		port map(bitArray => outfp2, outArray => outIp3);
+	split3: split
+		port map(bitArray => outIp3, out1 => split3Out1, out2 => split3Out2);
+	kp3: KeyPermutation
+		port map(bitArray => key(112 to 167), outArray => keypermutation3out);
+	splitkey3: splitKey
+		port map(keyArray => keypermutation3out, out1 => splitkey3Out1, out2 => splitkey3Out2);
+	-- 1
+	kg33: KeyGenerator
+		port map(key1 => splitkey3Out1, key2 => splitkey3Out2, keyGenerated => keygenerator33Out, outRotation1 => br1kg33, outRotation2 => br2kg33);
+	box33: Box
+		port map(message1 => split3Out1, message2 => split3Out2, kgenerated => keygenerator33Out, bout1 => box33out1, bout2 => box33out2);
+	-- 2
+	kg34: KeyGenerator
+		port map(key1 => br1kg33, key2 => br2kg33, keyGenerated => keygenerator34Out, outRotation1 => br1kg34, outRotation2 => br2kg34);
+	box34: Box
+		port map(message1 => box33out2, message2 => box33out1, kgenerated => keygenerator34Out, bout1 => box34out1, bout2 => box34out2);
+	-- 3
+	kg35: KeyGenerator
+		port map(key1 => br1kg34, key2 => br2kg34, keyGenerated => keygenerator35Out, outRotation1 => br1kg35, outRotation2 => br2kg35);
+	box35: Box
+		port map(message1 => box34out2, message2 => box34out1, kgenerated => keygenerator35Out, bout1 => box35out1, bout2 => box35out2);
+	-- 4
+	kg36: KeyGenerator
+		port map(key1 => br1kg35, key2 => br2kg35, keyGenerated => keygenerator36Out, outRotation1 => br1kg36, outRotation2 => br2kg36);
+	box36: Box
+		port map(message1 => box35out2, message2 => box35out1, kgenerated => keygenerator36Out, bout1 => box36out1, bout2 => box36out2);
+	-- 5
+	kg37: KeyGenerator
+		port map(key1 => br1kg36, key2 => br2kg36, keyGenerated => keygenerator37Out, outRotation1 => br1kg37, outRotation2 => br2kg37);
+	box37: Box
+		port map(message1 => box36out2, message2 => box36out1, kgenerated => keygenerator37Out, bout1 => box37out1, bout2 => box37out2);
+	-- 6
+	kg38: KeyGenerator
+		port map(key1 => br1kg37, key2 => br2kg37, keyGenerated => keygenerator38Out, outRotation1 => br1kg38, outRotation2 => br2kg38);
+	box38: Box
+		port map(message1 => box37out2, message2 => box37out1, kgenerated => keygenerator38Out, bout1 => box38out1, bout2 => box38out2);
+	-- 7
+	kg39: KeyGenerator
+		port map(key1 => br1kg38, key2 => br2kg38, keyGenerated => keygenerator39Out, outRotation1 => br1kg39, outRotation2 => br2kg39);
+	box39: Box
+		port map(message1 => box38out2, message2 => box38out1, kgenerated => keygenerator39Out, bout1 => box39out1, bout2 => box39out2);
+	-- 8
+	kg40: KeyGenerator
+		port map(key1 => br1kg39, key2 => br2kg39, keyGenerated => keygenerator40Out, outRotation1 => br1kg40, outRotation2 => br2kg40);
+	box40: Box
+		port map(message1 => box39out2, message2 => box39out1, kgenerated => keygenerator40Out, bout1 => box40out1, bout2 => box40out2);
+	-- 9
+	kg41: KeyGenerator
+		port map(key1 => br1kg40, key2 => br2kg40, keyGenerated => keygenerator41Out, outRotation1 => br1kg41, outRotation2 => br2kg41);
+	box41: Box
+		port map(message1 => box40out2, message2 => box40out1, kgenerated => keygenerator41Out, bout1 => box41out1, bout2 => box41out2);
+	-- 10
+	kg42: KeyGenerator
+		port map(key1 => br1kg41, key2 => br2kg41, keyGenerated => keygenerator42Out, outRotation1 => br1kg42, outRotation2 => br2kg42);
+	box42: Box
+		port map(message1 => box41out2, message2 => box41out1, kgenerated => keygenerator42Out, bout1 => box42out1, bout2 => box42out2);
+	-- 11
+	kg43: KeyGenerator
+		port map(key1 => br1kg42, key2 => br2kg42, keyGenerated => keygenerator43Out, outRotation1 => br1kg43, outRotation2 => br2kg43);
+	box43: Box
+		port map(message1 => box42out2, message2 => box42out1, kgenerated => keygenerator43Out, bout1 => box43out1, bout2 => box43out2);
+	-- 12
+	kg44: KeyGenerator
+		port map(key1 => br1kg43, key2 => br2kg43, keyGenerated => keygenerator44Out, outRotation1 => br1kg44, outRotation2 => br2kg44);
+	box44: Box
+		port map(message1 => box43out2, message2 => box43out1, kgenerated => keygenerator44Out, bout1 => box44out1, bout2 => box44out2);
+	-- 13
+	kg45: KeyGenerator
+		port map(key1 => br1kg44, key2 => br2kg44, keyGenerated => keygenerator45Out, outRotation1 => br1kg45, outRotation2 => br2kg45);
+	box45: Box
+		port map(message1 => box44out2, message2 => box44out1, kgenerated => keygenerator45Out, bout1 => box45out1, bout2 => box45out2);
+	-- 14
+	kg46: KeyGenerator
+		port map(key1 => br1kg45, key2 => br2kg45, keyGenerated => keygenerator46Out, outRotation1 => br1kg46, outRotation2 => br2kg46);
+	box46: Box
+		port map(message1 => box45out2, message2 => box45out1, kgenerated => keygenerator46Out, bout1 => box46out1, bout2 => box46out2);
+	-- 15
+	kg47: KeyGenerator
+		port map(key1 => br1kg46, key2 => br2kg46, keyGenerated => keygenerator47Out, outRotation1 => br1kg47, outRotation2 => br2kg47);
+	box47: Box
+		port map(message1 => box46out2, message2 => box46out1, kgenerated => keygenerator47Out, bout1 => box47out1, bout2 => box47out2);
+	-- 16
+	kg48: KeyGenerator
+		port map(key1 => br1kg47, key2 => br2kg47, keyGenerated => keygenerator48Out, outRotation1 => br1kg48, outRotation2 => br2kg48);
+	box48: Box
+		port map(message1 => box47out2, message2 => box47out1, kgenerated => keygenerator48Out, bout1 => box48out1, bout2 => box48out2);
+	-- final permutation 1
+	fp3: FinalPermutation
+		port map(bitArray1 => box48out1, bitArray2 => box48out2, outArray => outfp3);
 end comportamento;
