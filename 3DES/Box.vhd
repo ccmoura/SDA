@@ -6,7 +6,7 @@ ENTITY Box IS
 port(
 	message1, message2: in unsigned(0 to 27);
 	kgenerated: in unsigned(0 to 47);
-	bout1, bout2: out unsigned(0 to 27)
+	bout1, bout2: out unsigned(0 to 31)
 );
 end Box;
 architecture comportamento of Box is  

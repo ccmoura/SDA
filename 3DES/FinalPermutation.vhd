@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 ENTITY FinalPermutation IS
 PORT(
 	bitArray1, bitArray2: in unsigned(0 to 31);
-	outArray: out unsigned(0 to 31)
+	outArray: out unsigned(0 to 63)
 );
 END FinalPermutation;
 
