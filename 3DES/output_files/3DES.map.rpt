@@ -1,5 +1,5 @@
 Analysis & Synthesis report for 3DES
-Mon Dec 02 03:14:19 2019
+Mon Dec 02 22:16:06 2019
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 
 
@@ -41,7 +41,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Dec 02 03:14:19 2019    ;
+; Analysis & Synthesis Status        ; Successful - Mon Dec 02 22:16:06 2019    ;
 ; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
 ; Revision Name                      ; 3DES                                     ;
 ; Top-level Entity Name              ; TripleDES                                ;
@@ -221,7 +221,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
-    Info: Processing started: Mon Dec 02 03:14:17 2019
+    Info: Processing started: Mon Dec 02 22:16:04 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off 3DES -c 3DES
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file tripledes.vhd
@@ -257,6 +257,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file keymodu
 Info (12021): Found 2 design units, including 1 entities, in source file box.vhd
     Info (12022): Found design unit 1: Box-comportamento
     Info (12023): Found entity 1: Box
+Info (12021): Found 2 design units, including 1 entities, in source file crypto.vhd
+    Info (12022): Found design unit 1: Crypto-comportamento
+    Info (12023): Found entity 1: Crypto
 Info (12127): Elaborating entity "TripleDES" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at TripleDES.vhd(7): used implicit default value for signal "ready" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (13024): Output pins are stuck at VCC or GND
@@ -270,8 +273,8 @@ Info (21057): Implemented 2 device resources after synthesis - the final resourc
     Info (21059): Implemented 1 output pins
 Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 6 warnings
     Info: Peak virtual memory: 413 megabytes
-    Info: Processing ended: Mon Dec 02 03:14:19 2019
+    Info: Processing ended: Mon Dec 02 22:16:06 2019
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 

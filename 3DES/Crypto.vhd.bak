@@ -1,0 +1,13 @@
+library IEEE;
+USE ieee.std_logic_1164.all;
+
+ENTITY Crypto IS
+PORT(
+	encrypt: in std_logic;
+	ready: out std_logic
+);
+END Crypto;
+
+architecture comportamento of Crypto is  
+begin
+end comportamento;
