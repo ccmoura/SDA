@@ -70,7 +70,7 @@ PORT(
 end component;
 
 begin
-	-- primeiro componente
+	-- PRIMEIRO COMPONENTE
 	ip1: InitialPermutation
 		port map(bitArray => message, outArray => outIp1);
 	split1: split
@@ -162,4 +162,97 @@ begin
 	-- final permutation 1
 	fp1: FinalPermutation
 		port map(bitArray1 => box16out1, bitArray2 => box16out2, outArray => outfp1);
+	
+	-- SEGUNDO COMPONENTE
+	ip2: InitialPermutation
+		port map(bitArray => outfp1, outArray => outIp2);
+	split2: split
+		port map(bitArray => outIp2, out1 => split2Out1, out2 => split2Out2);
+	kp2: KeyPermutation
+		port map(bitArray => key(56 to 111), outArray => keypermutation2out);
+	splitkey2: splitKey
+		port map(keyArray => keypermutation2out, out1 => splitkey2Out1, out2 => splitkey2Out2);
+	-- 1
+	kg17: KeyGenerator
+		port map(key1 => splitkey2Out1, key2 => splitkey2Out2, keyGenerated => keygenerator17Out, outRotation1 => br1kg17, outRotation2 => br2kg17);
+	box17: Box
+		port map(message1 => split2Out1, message2 => split2Out2, kgenerated => keygenerator17Out, bout1 => box17out1, bout2 => box17out2);
+	-- 2
+	kg18: KeyGenerator
+		port map(key1 => br1kg17, key2 => br2kg17, keyGenerated => keygenerator18Out, outRotation1 => br1kg18, outRotation2 => br2kg18);
+	box18: Box
+		port map(message1 => box17out2, message2 => box17out1, kgenerated => keygenerator18Out, bout1 => box18out1, bout2 => box18out2);
+	-- 3
+	kg19: KeyGenerator
+		port map(key1 => br1kg18, key2 => br2kg18, keyGenerated => keygenerator19Out, outRotation1 => br1kg19, outRotation2 => br2kg19);
+	box19: Box
+		port map(message1 => box18out2, message2 => box18out1, kgenerated => keygenerator19Out, bout1 => box19out1, bout2 => box19out2);
+	-- 4
+	kg20: KeyGenerator
+		port map(key1 => br1kg19, key2 => br2kg19, keyGenerated => keygenerator20Out, outRotation1 => br1kg20, outRotation2 => br2kg20);
+	box20: Box
+		port map(message1 => box19out2, message2 => box19out1, kgenerated => keygenerator20Out, bout1 => box20out1, bout2 => box20out2);
+	-- 5
+	kg21: KeyGenerator
+		port map(key1 => br1kg20, key2 => br2kg20, keyGenerated => keygenerator21Out, outRotation1 => br1kg21, outRotation2 => br2kg21);
+	box21: Box
+		port map(message1 => box20out2, message2 => box20out1, kgenerated => keygenerator21Out, bout1 => box21out1, bout2 => box21out2);
+	-- 6
+	kg22: KeyGenerator
+		port map(key1 => br1kg21, key2 => br2kg21, keyGenerated => keygenerator22Out, outRotation1 => br1kg22, outRotation2 => br2kg22);
+	box22: Box
+		port map(message1 => box21out2, message2 => box21out1, kgenerated => keygenerator22Out, bout1 => box22out1, bout2 => box22out2);
+	-- 7
+	kg23: KeyGenerator
+		port map(key1 => br1kg22, key2 => br2kg22, keyGenerated => keygenerator23Out, outRotation1 => br1kg23, outRotation2 => br2kg23);
+	box23: Box
+		port map(message1 => box22out2, message2 => box22out1, kgenerated => keygenerator23Out, bout1 => box23out1, bout2 => box23out2);
+	-- 8
+	kg24: KeyGenerator
+		port map(key1 => br1kg23, key2 => br2kg23, keyGenerated => keygenerator24Out, outRotation1 => br1kg24, outRotation2 => br2kg24);
+	box24: Box
+		port map(message1 => box23out2, message2 => box23out1, kgenerated => keygenerator24Out, bout1 => box24out1, bout2 => box24out2);
+	-- 9
+	kg25: KeyGenerator
+		port map(key1 => br1kg24, key2 => br2kg24, keyGenerated => keygenerator25Out, outRotation1 => br1kg25, outRotation2 => br2kg25);
+	box25: Box
+		port map(message1 => box24out2, message2 => box24out1, kgenerated => keygenerator25Out, bout1 => box25out1, bout2 => box25out2);
+	-- 10
+	kg26: KeyGenerator
+		port map(key1 => br1kg25, key2 => br2kg25, keyGenerated => keygenerator26Out, outRotation1 => br1kg26, outRotation2 => br2kg26);
+	box26: Box
+		port map(message1 => box25out2, message2 => box25out1, kgenerated => keygenerator26Out, bout1 => box26out1, bout2 => box26out2);
+	-- 11
+	kg27: KeyGenerator
+		port map(key1 => br1kg26, key2 => br2kg26, keyGenerated => keygenerator27Out, outRotation1 => br1kg27, outRotation2 => br2kg27);
+	box27: Box
+		port map(message1 => box26out2, message2 => box26out1, kgenerated => keygenerator27Out, bout1 => box27out1, bout2 => box27out2);
+	-- 12
+	kg28: KeyGenerator
+		port map(key1 => br1kg27, key2 => br2kg27, keyGenerated => keygenerator28Out, outRotation1 => br1kg28, outRotation2 => br2kg28);
+	box28: Box
+		port map(message1 => box27out2, message2 => box27out1, kgenerated => keygenerator28Out, bout1 => box28out1, bout2 => box28out2);
+	-- 13
+	kg29: KeyGenerator
+		port map(key1 => br1kg28, key2 => br2kg28, keyGenerated => keygenerator29Out, outRotation1 => br1kg29, outRotation2 => br2kg29);
+	box29: Box
+		port map(message1 => box28out2, message2 => box28out1, kgenerated => keygenerator29Out, bout1 => box29out1, bout2 => box29out2);
+	-- 14
+	kg30: KeyGenerator
+		port map(key1 => br1kg29, key2 => br2kg29, keyGenerated => keygenerator30Out, outRotation1 => br1kg30, outRotation2 => br2kg30);
+	box30: Box
+		port map(message1 => box29out2, message2 => box29out1, kgenerated => keygenerator30Out, bout1 => box30out1, bout2 => box30out2);
+	-- 15
+	kg31: KeyGenerator
+		port map(key1 => br1kg30, key2 => br2kg30, keyGenerated => keygenerator31Out, outRotation1 => br1kg31, outRotation2 => br2kg31);
+	box31: Box
+		port map(message1 => box30out2, message2 => box30out1, kgenerated => keygenerator31Out, bout1 => box31out1, bout2 => box31out2);
+	-- 16
+	kg32: KeyGenerator
+		port map(key1 => br1kg31, key2 => br2kg31, keyGenerated => keygenerator32Out, outRotation1 => br1kg32, outRotation2 => br2kg32);
+	box32: Box
+		port map(message1 => box31out2, message2 => box31out1, kgenerated => keygenerator32Out, bout1 => box32out1, bout2 => box32out2);
+	-- final permutation 1
+	fp2: FinalPermutation
+		port map(bitArray1 => box32out1, bitArray2 => box32out2, outArray => outfp2);
 end comportamento;
