@@ -9,7 +9,6 @@ port(
 );
 end permutation;
 architecture comportamento of permutation is  
-signal b : unsigned;
 begin
 	o(0) <= k(13);
 	o(1) <= k(16);

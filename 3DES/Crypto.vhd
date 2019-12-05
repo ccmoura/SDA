@@ -1,20 +1,19 @@
 library IEEE;
 USE ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use STD.textio.all;
-use ieee.std_logic_textio.all;
 ENTITY Crypto IS
 PORT(
 	c: in std_logic;
 	message: in unsigned(0 to 63);
-	key: in unsigned(0 to 167)
+	key: in unsigned(0 to 191);
+	result : out unsigned(0 to 63)
 );
 END Crypto;
 
 architecture comportamento of Crypto is  
 signal outIp1, outIp2, outIp3 : unsigned(0 to 63);
 signal split1Out1, split1Out2, split2Out1, split2Out2, split3Out1, split3Out2 : unsigned(0 to 31);
-signal splitkey1Out1, splitkey1Out2, splitkey2Out1, splitkey2Out2, splitkey3Out1, splitkey3Out2 : unsigned(0 to 31);
+signal splitkey1Out1, splitkey1Out2, splitkey2Out1, splitkey2Out2, splitkey3Out1, splitkey3Out2 : unsigned(0 to 27);
 signal keypermutation1out, keypermutation2out, keypermutation3out : unsigned(0 to 55);
 signal keygenerator1Out, keygenerator2Out, keygenerator3Out, keygenerator4Out, keygenerator5Out, keygenerator6Out, keygenerator7Out, keygenerator8Out, keygenerator9Out, keygenerator10Out, keygenerator11Out, keygenerator12Out, keygenerator13Out, keygenerator14Out, keygenerator15Out, keygenerator16Out,
 keygenerator17Out, keygenerator18Out, keygenerator19Out, keygenerator20Out, keygenerator21Out, keygenerator22Out, keygenerator23Out, keygenerator24Out, keygenerator25Out, keygenerator26Out, keygenerator27Out, keygenerator28Out, keygenerator29Out, keygenerator30Out, keygenerator31Out, keygenerator32Out,
@@ -25,7 +24,7 @@ br1kg33, br2kg33, br1kg34, br2kg34, br1kg35, br2kg35, br1kg36, br2kg36, br1kg37,
 signal outfp1, outfp2, outfp3 : unsigned(0 to 63);
 signal box1out1, box1out2, box2out1, box2out2, box3out1, box3out2, box4out1, box4out2, box5out1, box5out2, box6out1, box6out2, box7out1, box7out2, box8out1, box8out2, box9out1, box9out2, box10out1, box10out2, box11out1, box11out2, box12out1, box12out2, box13out1, box13out2, box14out1, box14out2, box15out1, box15out2, box16out1, box16out2,
 box17out1, box17out2, box18out1, box18out2, box19out1, box19out2, box20out1, box20out2, box21out1, box21out2, box22out1, box22out2, box23out1, box23out2, box24out1, box24out2, box25out1, box25out2, box26out1, box26out2, box27out1, box27out2, box28out1, box28out2, box29out1, box29out2, box30out1, box30out2, box31out1, box31out2, box32out1, box32out2,
-box33out1, box33out2, box34out1, box34out2, box35out1, box35out2, box36out1, box36out2, box37out1, box37out2, box38out1, box38out2, box39out1, box39out2, box40out1, box40out2, box41out1, box41out2, box42out1, box42out2, box43out1, box43out2, box44out1, box44out2, box45out1, box45out2, box46out1, box46out2, box47out1, box47out2, box48out1, box48out2: unsigned(0 to 27);
+box33out1, box33out2, box34out1, box34out2, box35out1, box35out2, box36out1, box36out2, box37out1, box37out2, box38out1, box38out2, box39out1, box39out2, box40out1, box40out2, box41out1, box41out2, box42out1, box42out2, box43out1, box43out2, box44out1, box44out2, box45out1, box45out2, box46out1, box46out2, box47out1, box47out2, box48out1, box48out2: unsigned(0 to 31);
 signal output_std : std_logic_vector(0 to 63);
 component InitialPermutation
 PORT(
@@ -43,7 +42,7 @@ end component;
 
 component Box
 port(
-	message1, message2: in unsigned(0 to 27);
+	message1, message2: in unsigned(0 to 31);
 	kgenerated: in unsigned(0 to 47);
 	bout1, bout2: out unsigned(0 to 31)
 );
@@ -58,7 +57,7 @@ end component;
 
 component KeyPermutation
 PORT(
-	bitArray: in unsigned(0 to 55);
+	bitArray: in unsigned(0 to 63);
 	outArray: out unsigned(0 to 55)
 );
 end component;
@@ -85,7 +84,7 @@ begin
 	split1: split
 		port map(bitArray => outIp1, out1 => split1Out1, out2 => split1Out2);
 	kp1: KeyPermutation
-		port map(bitArray => key(0 to 55), outArray => keypermutation1out);
+		port map(bitArray => key(0 to 63), outArray => keypermutation1out);
 	splitkey1: splitKey
 		port map(keyArray => keypermutation1out, out1 => splitkey1Out1, out2 => splitkey1Out2);
 	-- 1
@@ -178,7 +177,7 @@ begin
 	split2: split
 		port map(bitArray => outIp2, out1 => split2Out1, out2 => split2Out2);
 	kp2: KeyPermutation
-		port map(bitArray => key(56 to 111), outArray => keypermutation2out);
+		port map(bitArray => key(64 to 127), outArray => keypermutation2out);
 	splitkey2: splitKey
 		port map(keyArray => keypermutation2out, out1 => splitkey2Out1, out2 => splitkey2Out2);
 	-- 1
@@ -271,7 +270,7 @@ begin
 	split3: split
 		port map(bitArray => outIp3, out1 => split3Out1, out2 => split3Out2);
 	kp3: KeyPermutation
-		port map(bitArray => key(112 to 167), outArray => keypermutation3out);
+		port map(bitArray => key(128 to 191), outArray => keypermutation3out);
 	splitkey3: splitKey
 		port map(keyArray => keypermutation3out, out1 => splitkey3Out1, out2 => splitkey3Out2);
 	-- 1
@@ -358,17 +357,6 @@ begin
 	fp3: FinalPermutation
 		port map(bitArray1 => box48out1, bitArray2 => box48out2, outArray => outfp3);
 		
-	-- saida para arquivo
-	process (c) is
-	
-	VARIABLE L : LINE;
-	FILE OUTFILE : TEXT;
-   begin
-		FILE_OPEN(OUTFILE, "saida.txt", WRITE_MODE);
-		wait until (falling_edge(c));
-		output_std <= std_logic_vector(outfp3);
-		write(L, output_std);
-		writeline(OUTFILE, L);
-		file_close(OUTFILE);
-  end process;
+	-- saida
+	result <= outfp3;
 end comportamento;

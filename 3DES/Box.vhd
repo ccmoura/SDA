@@ -4,13 +4,13 @@ use ieee.numeric_std.all;
 
 ENTITY Box IS
 port(
-	message1, message2: in unsigned(0 to 27);
+	message1, message2: in unsigned(0 to 31);
 	kgenerated: in unsigned(0 to 47);
 	bout1, bout2: out unsigned(0 to 31)
 );
 end Box;
 architecture comportamento of Box is  
-signal expansionBuffer : unsigned(0 to 47);
+signal expansionBuffer, expansionBuffer2 : unsigned(0 to 47);
 signal expansionBufferProcessed : unsigned(0 to 31);
 signal ebppermuted : unsigned(0 to 31);
 begin
@@ -65,12 +65,12 @@ begin
 	expansionBuffer(47) <= message2(0);
 	
 	-- xor com a subchave
-	expansionBuffer <= kgenerated xor expansionBuffer;
+	expansionBuffer2 <= kgenerated xor expansionBuffer;
 	
 	-- s1
-	process (expansionBuffer(0 to 5)) is
+	process (expansionBuffer2(0 to 5)) is
 	begin
-		case expansionBuffer(0 to 5) is
+		case expansionBuffer2(0 to 5) is
 			when "000000" => expansionBufferProcessed(0 to 3) <= "1110";
 			when "000001" => expansionBufferProcessed(0 to 3) <= "0000";
 			when "000010" => expansionBufferProcessed(0 to 3) <= "0100";
@@ -140,9 +140,9 @@ begin
 	end process;
 	
 	-- s2
-	process (expansionBuffer(6 to 11)) is
+	process (expansionBuffer2(6 to 11)) is
 	begin
-		case expansionBuffer(6 to 11) is
+		case expansionBuffer2(6 to 11) is
 			when "000000" => expansionBufferProcessed(4 to 7) <= "1111";
 			when "000001" => expansionBufferProcessed(4 to 7) <= "0011";
 			when "000010" => expansionBufferProcessed(4 to 7) <= "0001";
@@ -212,9 +212,9 @@ begin
 	end process;
 	
 	-- s3
-	process (expansionBuffer(12 to 17)) is
+	process (expansionBuffer2(12 to 17)) is
 	begin
-		case expansionBuffer(12 to 17) is
+		case expansionBuffer2(12 to 17) is
 			when "000000" => expansionBufferProcessed(8 to 11) <= "1010";
 			when "000001" => expansionBufferProcessed(8 to 11) <= "1101";
 			when "000010" => expansionBufferProcessed(8 to 11) <= "0000";
@@ -284,9 +284,9 @@ begin
 	end process;
 	
 	-- s4
-	process (expansionBuffer(18 to 23)) is
+	process (expansionBuffer2(18 to 23)) is
 	begin
-		case expansionBuffer(18 to 23) is
+		case expansionBuffer2(18 to 23) is
 			when "000000" => expansionBufferProcessed(12 to 15) <= "0111";
 			when "000001" => expansionBufferProcessed(12 to 15) <= "1101";
 			when "000010" => expansionBufferProcessed(12 to 15) <= "1101";
@@ -356,9 +356,9 @@ begin
 	end process;
 	
 	-- s5
-	process (expansionBuffer(24 to 29)) is
+	process (expansionBuffer2(24 to 29)) is
 	begin
-		case expansionBuffer(24 to 29) is
+		case expansionBuffer2(24 to 29) is
 			when "000000" => expansionBufferProcessed(16 to 19) <= "0010";
 			when "000001" => expansionBufferProcessed(16 to 19) <= "1110";
 			when "000010" => expansionBufferProcessed(16 to 19) <= "1100";
@@ -428,9 +428,9 @@ begin
 	end process;
 	
 	-- s6
-	process (expansionBuffer(30 to 35)) is
+	process (expansionBuffer2(30 to 35)) is
 	begin
-		case expansionBuffer(30 to 35) is
+		case expansionBuffer2(30 to 35) is
 			when "000000" => expansionBufferProcessed(20 to 23) <= "1100";
 			when "000001" => expansionBufferProcessed(20 to 23) <= "1010";
 			when "000010" => expansionBufferProcessed(20 to 23) <= "0001";
@@ -500,9 +500,9 @@ begin
 	end process;
 	
 	-- s7
-	process (expansionBuffer(36 to 41)) is
+	process (expansionBuffer2(36 to 41)) is
 	begin
-		case expansionBuffer(36 to 41) is
+		case expansionBuffer2(36 to 41) is
 			when "000000" => expansionBufferProcessed(24 to 27) <= "0100";
 			when "000001" => expansionBufferProcessed(24 to 27) <= "1101";
 			when "000010" => expansionBufferProcessed(24 to 27) <= "1011";
@@ -572,9 +572,9 @@ begin
 	end process;
 	
 	-- s8
-	process (expansionBuffer(42 to 47)) is
+	process (expansionBuffer2(42 to 47)) is
 	begin
-		case expansionBuffer(42 to 47) is
+		case expansionBuffer2(42 to 47) is
 			when "000000" => expansionBufferProcessed(28 to 31) <= "1101";
 			when "000001" => expansionBufferProcessed(28 to 31) <= "0001";
 			when "000010" => expansionBufferProcessed(28 to 31) <= "0010";

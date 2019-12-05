@@ -3,7 +3,7 @@ USE ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 ENTITY KeyPermutation IS
 PORT(
-	bitArray: in unsigned(0 to 55);
+	bitArray: in unsigned(0 to 63);
 	outArray: out unsigned(0 to 55)
 );
 END KeyPermutation;

@@ -3,6 +3,6 @@
     <hash md5_digest_80b="00000000000000000000"/>
   </project>
   <file_info>
-    <file checksum="0x000BB3E3" device="EP4CGX15BF14C6" path="3DES.sof" usercode="0xFFFFFFFF"/>
+    <file checksum="0x0079DF36" device="EP4CGX110DF27C7" path="3DES.sof" usercode="0xFFFFFFFF"/>
   </file_info>
 </sld_project_info>
