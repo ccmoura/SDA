@@ -1,0 +1,17 @@
+# Compile of BinaryRotation.vhd was successful.
+# Compile of BinaryRotation2.vhd was successful.
+# Compile of Box.vhd was successful.
+# Compile of Crypto.vhd was successful.
+# Compile of Crypto_tb_vhd.vhd was successful.
+# Compile of Decrypto.vhd was successful.
+# Compile of FinalPermutation.vhd was successful.
+# Compile of InitialPermutation.vhd was successful.
+# Compile of KeyGenerator.vhd was successful.
+# Compile of KeyGenerator2.vhd was successful.
+# Compile of KeyModule.vhd was successful.
+# Compile of KeyPermutation.vhd was successful.
+# Compile of permutation.vhd was successful.
+# Compile of split.vhd was successful.
+# Compile of splitKey.vhd was successful.
+# 15 compiles, 0 failed with no errors.
+vsim -gui +altera -l msim_transcript -do 3DES_run_msim_rtl_vhdl.do work.crypto_tb_vhd
